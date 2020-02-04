@@ -1,0 +1,58 @@
+
+import java.util.Scanner;
+
+/**
+ * This class will implement move method and playerName method
+ * @author Dayana Garcia
+ */
+public class Human implements Player{
+   
+    //Instance Variables
+    private String name;//name for human player
+    private int removedMarbles;//Number of removed marbels
+    
+    
+    Scanner keyboard = new Scanner(System.in);
+    
+    /**
+     * This method gets number of marbles to be removed
+     * @param marbleNumber number of marbles 
+     * @return removedMarbles return marbles taken
+     */
+    @Override 
+    public int move(int marbleNumber){
+    //Asking user for a valid number of marbels to be removed from pile
+    System.out.println("How many marbels do you want to removed out of " + marbleNumber);
+    removedMarbles = keyboard.nextInt();
+    
+    //to validate user's input
+    while(removedMarbles < 1 || removedMarbles > (marbleNumber/2)){
+         System.out.println("Marbels to be removed must be between 1 and " + (marbleNumber/2) + "\n" +
+                            "Enter a valid number of marbels to be removed");
+         removedMarbles = keyboard.nextInt();
+         
+    }
+    //echo printing 
+    System.out.println("*****Taking out " + removedMarbles + " marbles out of " + marbleNumber 
+                        + "******");
+    //this method return marbels to be removed
+    return removedMarbles;  
+}
+
+    /**
+     * This method ask user's name 
+     * @return name player's name 
+     */
+    @Override
+    public String playerNames(){
+    
+    //Asking user to enter his/her name interactively
+    System.out.println("Enter name: ");
+    name = keyboard.nextLine();
+    
+    //this method return the player's name
+    return name;
+            
+}
+   
+}
