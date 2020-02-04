@@ -1,0 +1,48 @@
+
+import java.util.Random;
+
+/**
+ * This class will implement move method and playerName method
+ * @author Dayana Garcia
+ */
+public class BelowAverageComputer implements Player{
+    
+    //instance variables
+    private String name;//
+    private int marble;
+    
+    /**
+     * This method will return the name of a below average computer
+     * @return name the name of player 
+     */
+    @Override
+    public String playerNames(){
+        //name of Below Average Computer
+        name = "Wonder Woman";
+        //return the name of Below Average Computer
+        return name;
+    }
+    
+    /**
+     * This method will remove a random number of marbles between one and half
+     * of the remaining pile
+     * @param marbleNumber number of marble from pile
+     * @return marble number of marble to take out from pile
+     */
+    @Override
+    public int move(int marbleNumber){
+        
+        Random takingOutMarbels = new Random();
+        //Creating a random number from the range between one half
+        // of the remaining pile
+        marble = takingOutMarbels.nextInt(((marbleNumber/2) - 1) + 1) + 1;
+        
+        //Displaying amount of marbles to be removed out of remining marbles
+        System.out.println("*****Taking out " + marble + " marbles out of " + marbleNumber
+                           + "*****");
+        
+        //return marble to be removed
+        return marble;
+    }
+    
+}
